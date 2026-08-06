@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 import { ArrowUpRight, Lock } from "lucide-react";
@@ -231,13 +230,20 @@ function Preview({ project }: { project: Project }) {
       </div>
 
       {project.image ? (
-        <Image
+        /* A plain <img>, not next/image: this is a static export, so the image
+           optimizer is off and next/image would emit a single 1440px source
+           for every device. The srcset below is the whole point — phones pull
+           the 800px file instead. Each screenshot ships in both widths. */
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
           src={project.image}
+          srcSet={`${project.image.replace(/\.jpg$/, "-800.jpg")} 800w, ${project.image} 1440w`}
+          sizes="(max-width: 1024px) 100vw, 58vw"
           alt={project.imageAlt ?? `${project.name} interface`}
           width={1440}
           height={900}
-          quality={82}
-          sizes="(max-width: 1024px) 100vw, 58vw"
+          loading="lazy"
+          decoding="async"
           className="w-full transition-transform duration-700 group-hover:scale-[1.015]"
         />
       ) : (

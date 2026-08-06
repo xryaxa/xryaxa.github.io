@@ -17,7 +17,6 @@ import { ShyResumeButton } from "@/components/ui/shy-button";
 import { unlock } from "@/lib/achievements";
 import { useLiteMode } from "@/lib/use-lite-mode";
 
-const EASE = [0.16, 1, 0.3, 1] as const;
 const ROLES = ["Builder.", "Dreamer.", "Frontend Engineer.", "Future Founder."];
 
 export function Hero() {
@@ -80,11 +79,9 @@ export function Hero() {
           }
           className="flex flex-col items-center text-center"
         >
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: EASE }}
-            className="mb-8 flex items-center gap-2 rounded-full border border-line bg-surface/50 px-3.5 py-1.5 font-mono text-[11px] tracking-wide text-muted backdrop-blur-sm"
+          <div
+            style={{ animationDelay: "0.15s" }}
+            className="hero-rise mb-8 flex items-center gap-2 rounded-full border border-line bg-surface/50 px-3.5 py-1.5 font-mono text-[11px] tracking-wide text-muted"
           >
             <span className="relative flex size-1.5">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-60" />
@@ -94,50 +91,35 @@ export function Hero() {
             <span className="text-dim">·</span>
             <MapPin className="size-3" aria-hidden />
             Baku
-          </motion.div>
+          </div>
 
-          {/* The name. Layered so it drifts slightly against the roles below. */}
-          <motion.h1
-            style={still ? undefined : { x: layerX, y: layerY }}
-            initial={
-              still
-                ? { opacity: 0, scale: 0.97 }
-                : { opacity: 0, scale: 0.94, filter: "blur(14px)" }
-            }
-            animate={
-              still
-                ? { opacity: 1, scale: 1 }
-                : { opacity: 1, scale: 1, filter: "blur(0px)" }
-            }
-            transition={{ duration: 1.1, delay: 0.05, ease: EASE }}
-            className="text-gradient text-[clamp(3.5rem,17vw,13rem)] leading-[0.82] font-bold tracking-[-0.05em]"
-          >
-            RYAXA
-          </motion.h1>
+          {/* The name. Layered so it drifts slightly against the roles below.
+              The scale-in lives on the wrapper so it cannot fight the pointer
+              parallax transform Motion writes onto the heading itself. */}
+          <div className="hero-name">
+            <motion.h1
+              style={still ? undefined : { x: layerX, y: layerY }}
+              className="text-gradient text-[clamp(3.5rem,17vw,13rem)] leading-[0.82] font-bold tracking-[-0.05em]"
+            >
+              RYAXA
+            </motion.h1>
+          </div>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 sm:gap-x-5">
             {ROLES.map((role, i) => (
-              <motion.span
+              <span
                 key={role}
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.7,
-                  delay: 0.5 + i * 0.09,
-                  ease: EASE,
-                }}
-                className="text-base font-medium tracking-tight text-muted sm:text-xl"
+                style={{ animationDelay: `${0.5 + i * 0.09}s` }}
+                className="hero-rise text-base font-medium tracking-tight text-muted sm:text-xl"
               >
                 {role}
-              </motion.span>
+              </span>
             ))}
           </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9, ease: EASE }}
-            className="mt-8 max-w-xl text-[15px] leading-relaxed text-dim text-balance sm:text-base"
+          <p
+            style={{ animationDelay: "0.9s" }}
+            className="hero-rise mt-8 max-w-xl text-[15px] leading-relaxed text-dim text-balance sm:text-base"
           >
             I build interfaces people actually use — including{" "}
             <a
@@ -149,13 +131,11 @@ export function Hero() {
               Nara
             </a>
             , a white-label platform running in production for real businesses.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.05, ease: EASE }}
-            className="mt-10 flex flex-wrap items-center justify-center gap-3"
+          <div
+            style={{ animationDelay: "1.05s" }}
+            className="hero-rise mt-10 flex flex-wrap items-center justify-center gap-3"
           >
             <ButtonLink href="#work" variant="accent" magnetic>
               See the work
@@ -163,26 +143,28 @@ export function Hero() {
             <span onClick={() => unlock("resume")}>
               <ShyResumeButton href={SITE.resume} />
             </span>
-          </motion.div>
+          </div>
         </motion.div>
       </motion.div>
 
-      <motion.a
+      {/* The entrance animation ends at `transform: none`, which would wipe the
+          -translate-x-1/2 that centres this. So the anchor keeps the position
+          and an inner element carries the animation. */}
+      <a
         href="#work"
         aria-label="Scroll to work"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.6, duration: 0.8 }}
         className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2 text-dim transition-colors hover:text-fg"
       >
-        <motion.span
-          animate={still ? undefined : { y: [0, 7, 0] }}
-          transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-          className="block"
-        >
-          <ArrowDown className="size-5" aria-hidden />
-        </motion.span>
-      </motion.a>
+        <span style={{ animationDelay: "1.6s" }} className="hero-rise block">
+          <motion.span
+            animate={still ? undefined : { y: [0, 7, 0] }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+            className="block"
+          >
+            <ArrowDown className="size-5" aria-hidden />
+          </motion.span>
+        </span>
+      </a>
     </section>
   );
 }

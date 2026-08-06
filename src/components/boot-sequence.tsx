@@ -47,6 +47,10 @@ export function BootSequence() {
     } catch {
       seen = false;
     }
+    // Deliberate: the prerendered HTML must be identical for every visitor, so
+    // whether the intro plays can only be decided after mount. Reading
+    // sessionStorage during render would desync hydration.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!seen) setActive(true);
   }, [reduced, pathname]);
 

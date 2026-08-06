@@ -147,6 +147,42 @@ body {
   animation: marquee 40s linear infinite;
 }
 
+/* ------------------------------------------------ hero entrance --------- */
+/* CSS, not JS, on purpose. Driving the hero entrance from Motion meant the
+   headline sat at opacity:0 until React hydrated — which made it the LCP
+   element with ~2.4s of render delay. These run from the first frame, so the
+   hero paints immediately and animates while the bundle is still arriving. */
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* The headline never fades — it is the LCP element, so it must be opaque on
+   the very first paint. It settles in scale only. */
+@keyframes hero-name {
+  from {
+    transform: scale(0.965);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-rise {
+  animation: hero-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-name {
+  animation: hero-name 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 /* ------------------------------------------------- reduced motion ------- */
 /* Everything below the fold degrades to plain static content when the user
    asks for less motion. Content is never hidden behind an animation. */
