@@ -7,6 +7,7 @@ import { ArrowUpRight, Lock } from "lucide-react";
 import { PROJECTS, type Project } from "@/lib/content";
 import { Section } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
+import { useLiteMode } from "@/lib/use-lite-mode";
 import { cn } from "@/lib/utils";
 
 export function Projects() {
@@ -36,6 +37,10 @@ export function Projects() {
 function ProjectBlock({ project, index }: { project: Project; index: number }) {
   const ref = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
+  const lite = useLiteMode();
+  // Scroll-linked rotation on a full-width screenshot repaints a large layer
+  // on every frame, once per project. This was the main source of phone jank.
+  const still = reduced || lite;
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -140,7 +145,7 @@ function ProjectBlock({ project, index }: { project: Project; index: number }) {
           )}
         >
           <motion.div
-            style={reduced ? undefined : { rotate, y, scale }}
+            style={still ? undefined : { rotate, y, scale }}
             className="relative"
           >
             <Preview project={project} />

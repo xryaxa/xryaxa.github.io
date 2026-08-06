@@ -9,6 +9,7 @@ import {
   useReducedMotion,
 } from "motion/react";
 import { cn } from "@/lib/utils";
+import { useLiteMode } from "@/lib/use-lite-mode";
 
 /** Static grid, drawn in CSS and faded out at the edges with a mask. */
 export function GridBackground({ className }: { className?: string }) {
@@ -39,6 +40,7 @@ export function GridBackground({ className }: { className?: string }) {
  */
 export function Spotlight() {
   const reduced = useReducedMotion();
+  const lite = useLiteMode();
 
   const x = useMotionValue(50);
   const y = useMotionValue(35);
@@ -48,16 +50,18 @@ export function Spotlight() {
   const background = useMotionTemplate`radial-gradient(620px circle at ${sx}% ${sy}%, rgba(76,141,255,0.11), transparent 68%)`;
 
   useEffect(() => {
-    if (reduced) return;
+    if (reduced || lite) return;
     const onMove = (e: PointerEvent) => {
       x.set((e.clientX / window.innerWidth) * 100);
       y.set((e.clientY / window.innerHeight) * 100);
     };
     window.addEventListener("pointermove", onMove, { passive: true });
     return () => window.removeEventListener("pointermove", onMove);
-  }, [reduced, x, y]);
+  }, [reduced, lite, x, y]);
 
-  if (reduced) return null;
+  // A full-viewport gradient that repaints on every pointer move, for a
+  // pointer that does not exist on touch. Nothing to keep here.
+  if (reduced || lite) return null;
 
   return (
     <motion.div
@@ -83,9 +87,10 @@ export function Particles({
 }) {
   const ref = useRef<HTMLCanvasElement>(null);
   const reduced = useReducedMotion();
+  const lite = useLiteMode();
 
   useEffect(() => {
-    if (reduced) return;
+    if (reduced || lite) return;
     const canvas = ref.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d", { alpha: true });
@@ -173,9 +178,9 @@ export function Particles({
       window.removeEventListener("resize", onResize);
       document.removeEventListener("visibilitychange", onVisibility);
     };
-  }, [count, reduced]);
+  }, [count, reduced, lite]);
 
-  if (reduced) return null;
+  if (reduced || lite) return null;
 
   return (
     <canvas
@@ -186,18 +191,28 @@ export function Particles({
   );
 }
 
-/** Soft accent bloom anchored behind the hero type. */
+/**
+ * Soft accent bloom anchored behind the hero type.
+ *
+ * A 110px blur over an 820px box is one of the most expensive things a phone
+ * GPU can be asked to composite. In lite mode the blur filter is dropped and
+ * the radial gradient is widened instead — visually near-identical, and free.
+ */
 export function Bloom({ className }: { className?: string }) {
+  const lite = useLiteMode();
+
   return (
     <div
       aria-hidden
       className={cn(
-        "pointer-events-none absolute left-1/2 top-1/3 h-[420px] w-[820px] max-w-[95vw] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[110px]",
+        "pointer-events-none absolute top-1/3 left-1/2 h-[420px] w-[820px] max-w-[95vw] -translate-x-1/2 -translate-y-1/2 rounded-full",
+        !lite && "blur-[110px]",
         className,
       )}
       style={{
-        background:
-          "radial-gradient(ellipse at center, rgba(76,141,255,0.22), rgba(76,141,255,0.05) 45%, transparent 70%)",
+        background: lite
+          ? "radial-gradient(ellipse at center, rgba(76,141,255,0.16), rgba(76,141,255,0.05) 40%, transparent 68%)"
+          : "radial-gradient(ellipse at center, rgba(76,141,255,0.22), rgba(76,141,255,0.05) 45%, transparent 70%)",
       }}
     />
   );

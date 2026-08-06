@@ -68,13 +68,14 @@ export function TextReveal({
     show: { transition: { staggerChildren: stagger, delayChildren: delay } },
   };
 
+  // Opacity and transform only. A per-word blur filter looks marginally
+  // nicer and costs a separate rasterised layer for every word on screen.
   const word: Variants = {
-    hidden: { opacity: 0, y: "0.4em", filter: "blur(6px)" },
+    hidden: { opacity: 0, y: "0.4em" },
     show: {
       opacity: 1,
       y: "0em",
-      filter: "blur(0px)",
-      transition: { duration: 0.75, ease: EASE },
+      transition: { duration: 0.7, ease: EASE },
     },
   };
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { Section } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
 
@@ -32,6 +33,23 @@ const NOTES = [
 ];
 
 export function Stack() {
+  const marquee = useRef<HTMLDivElement>(null);
+
+  // An infinite animation keeps a compositor layer alive even when the section
+  // is nowhere near the viewport. Pause it whenever it is not on screen.
+  useEffect(() => {
+    const el = marquee.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        el.style.animationPlayState = entry.isIntersecting ? "running" : "paused";
+      },
+      { threshold: 0 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <Section
       id="stack"

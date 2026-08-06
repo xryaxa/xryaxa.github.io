@@ -92,7 +92,7 @@ export function BootSequence() {
       {active && (
         <motion.div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-bg px-6"
-          exit={{ opacity: 0, filter: "blur(8px)" }}
+          exit={{ opacity: 0 }}
           transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
           onClick={dismiss}
           role="presentation"

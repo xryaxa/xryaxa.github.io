@@ -53,8 +53,10 @@ export function Nav() {
       <nav
         className={cn(
           "pointer-events-auto flex items-center gap-1 rounded-full border px-2 py-2 transition-all duration-500",
+          // A blurred backdrop repaints on every scroll frame. Phones get a
+          // near-opaque background instead, which reads the same and is free.
           scrolled
-            ? "border-line bg-bg/80 backdrop-blur-xl"
+            ? "border-line bg-bg/95 md:bg-bg/80 md:backdrop-blur-xl"
             : "border-transparent bg-transparent",
         )}
       >

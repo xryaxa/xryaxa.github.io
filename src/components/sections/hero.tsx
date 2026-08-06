@@ -15,12 +15,17 @@ import { Bloom, GridBackground, Particles, Spotlight } from "@/components/ui/bac
 import { ButtonLink } from "@/components/ui/button";
 import { ShyResumeButton } from "@/components/ui/shy-button";
 import { unlock } from "@/lib/achievements";
+import { useLiteMode } from "@/lib/use-lite-mode";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const ROLES = ["Builder.", "Dreamer.", "Frontend Engineer.", "Future Founder."];
 
 export function Hero() {
   const reduced = useReducedMotion();
+  const lite = useLiteMode();
+  // 3D tilt, layer drift and the scroll fade all force compositing on a
+  // full-viewport element. Skipped on phones; the entrance animation stays.
+  const still = reduced || lite;
 
   // Pointer parallax — the whole type block leans a few pixels toward the
   // cursor. Small enough to read as depth rather than movement.
@@ -40,14 +45,14 @@ export function Hero() {
   const heroY = useTransform(scrollYProgress, [0, 0.12], [0, -60]);
 
   useEffect(() => {
-    if (reduced) return;
+    if (still) return;
     const onMove = (e: PointerEvent) => {
       mx.set(e.clientX / window.innerWidth - 0.5);
       my.set(e.clientY / window.innerHeight - 0.5);
     };
     window.addEventListener("pointermove", onMove, { passive: true });
     return () => window.removeEventListener("pointermove", onMove);
-  }, [mx, my, reduced]);
+  }, [mx, my, still]);
 
   return (
     <section
@@ -66,14 +71,12 @@ export function Hero() {
       />
 
       <motion.div
-        style={reduced ? undefined : { opacity: heroOpacity, y: heroY }}
+        style={still ? undefined : { opacity: heroOpacity, y: heroY }}
         className="relative z-10 mx-auto w-full max-w-5xl"
       >
         <motion.div
           style={
-            reduced
-              ? undefined
-              : { rotateX, rotateY, transformPerspective: 1200 }
+            still ? undefined : { rotateX, rotateY, transformPerspective: 1200 }
           }
           className="flex flex-col items-center text-center"
         >
@@ -95,9 +98,17 @@ export function Hero() {
 
           {/* The name. Layered so it drifts slightly against the roles below. */}
           <motion.h1
-            style={reduced ? undefined : { x: layerX, y: layerY }}
-            initial={{ opacity: 0, scale: 0.94, filter: "blur(14px)" }}
-            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            style={still ? undefined : { x: layerX, y: layerY }}
+            initial={
+              still
+                ? { opacity: 0, scale: 0.97 }
+                : { opacity: 0, scale: 0.94, filter: "blur(14px)" }
+            }
+            animate={
+              still
+                ? { opacity: 1, scale: 1 }
+                : { opacity: 1, scale: 1, filter: "blur(0px)" }
+            }
             transition={{ duration: 1.1, delay: 0.05, ease: EASE }}
             className="text-gradient text-[clamp(3.5rem,17vw,13rem)] leading-[0.82] font-bold tracking-[-0.05em]"
           >
@@ -165,7 +176,7 @@ export function Hero() {
         className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2 text-dim transition-colors hover:text-fg"
       >
         <motion.span
-          animate={reduced ? undefined : { y: [0, 7, 0] }}
+          animate={still ? undefined : { y: [0, 7, 0] }}
           transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
           className="block"
         >
