@@ -14,8 +14,10 @@
   --color-line-soft: #17171d;
 
   --color-fg: #f4f4f6;
-  --color-muted: #8b8b98;
-  --color-dim: #5a5a68;
+  /* Both greys clear 4.5:1 against --color-bg and --color-bg-soft. The site
+     leans on small mono type, so anything dimmer fails WCAG AA outright. */
+  --color-muted: #a1a1b0;
+  --color-dim: #7d7d8c;
 
   --color-accent: #4c8dff;
   --color-accent-soft: #78a8ff;
