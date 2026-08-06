@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { BOOT_LINES } from "@/lib/content";
 
@@ -18,6 +19,7 @@ const SEEN_KEY = "ryaxa:booted";
  */
 export function BootSequence() {
   const reduced = useReducedMotion();
+  const pathname = usePathname();
   const [active, setActive] = useState(false);
   const [shown, setShown] = useState(0);
   const [ready, setReady] = useState(false);
@@ -36,6 +38,9 @@ export function BootSequence() {
   // identical for every visitor and hydration never mismatches.
   useEffect(() => {
     if (reduced) return;
+    // Home page only. On the 404 the boot screen would cover the joke that
+    // page exists for, and on any deep link it just delays the content.
+    if (pathname !== "/") return;
     let seen = false;
     try {
       seen = sessionStorage.getItem(SEEN_KEY) === "1";
@@ -43,7 +48,7 @@ export function BootSequence() {
       seen = false;
     }
     if (!seen) setActive(true);
-  }, [reduced]);
+  }, [reduced, pathname]);
 
   // Reveal the lines one at a time.
   useEffect(() => {
