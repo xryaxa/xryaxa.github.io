@@ -125,17 +125,17 @@ export const PROJECTS: Project[] = [
     name: "Bullur",
     tagline: "Clean food. Nothing hidden.",
     year: "2026",
-    status: "Live",
+    status: "In progress",
     role: "Founder · Frontend",
     summary:
-      "A daily meal-plan service in Baku, built and shipped end to end. Cooked fresh each morning and delivered — with the ingredients, calories and price shown openly, which is the whole point of it. Bilingual AZ/RU with light and dark themes.",
+      "A daily meal-plan service for Baku, currently in build. Cooked fresh each morning and delivered — with the ingredients, calories and price shown openly, which is the whole point of it. Bilingual AZ/RU, light and dark themes. Not launched yet; the link is a working preview.",
     challenge:
-      "Selling transparency means the interface has to earn trust in the first three seconds. Every claim on the page needed the number behind it visible right there, without turning the layout into a spreadsheet.",
+      "Selling transparency means the interface has to earn trust in the first three seconds. Every claim on the page needs the number behind it visible right there, without turning the layout into a spreadsheet.",
     lesson:
-      "Second time around I built far less before showing it to anyone. Nara taught me that the thing you are sure about is the thing to test first.",
+      "Second time around I am building far less before showing it to anyone. Nara taught me that the thing you are most sure about is the thing to test first.",
     metrics: [
+      { label: "Stage", value: "Pre-launch" },
       { label: "Languages", value: "AZ · RU" },
-      { label: "Delivery", value: "Free" },
       { label: "Plans", value: "Weekly · Monthly" },
     ],
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
