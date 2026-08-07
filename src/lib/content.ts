@@ -208,8 +208,8 @@ export const JOURNEY = [
   },
   {
     year: "Early 2026",
-    title: "Client sites",
-    body: "Cafés, tour operators, meal delivery, a doner shop. Real deadlines, real feedback, real people refreshing the page.",
+    title: "Nine practice builds",
+    body: "Cafés, tour operators, meal delivery, a doner shop — not client work, just me picking real-world businesses and building the site each one deserved. Every single one finished and deployed, because half-done teaches you nothing.",
   },
   {
     year: "Mid 2026",
