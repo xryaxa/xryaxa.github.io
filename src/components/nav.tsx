@@ -5,9 +5,12 @@ import { motion, useReducedMotion } from "motion/react";
 import { Command } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+// Must stay in the same order the sections appear on the page. The active
+// indicator slides between these as you scroll, so a mismatch makes it travel
+// backwards.
 const LINKS = [
-  { id: "work", label: "Work" },
   { id: "about", label: "About" },
+  { id: "work", label: "Work" },
   { id: "journey", label: "Journey" },
   { id: "stack", label: "Stack" },
   { id: "contact", label: "Contact" },
