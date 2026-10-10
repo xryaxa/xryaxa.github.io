@@ -145,6 +145,30 @@ export const PROJECTS: Project[] = [
     accent: "#2dd4bf",
   },
   {
+    slug: "tasky",
+    name: "Tasky",
+    tagline: "Learn JavaScript by getting it wrong — safely",
+    year: "2026",
+    status: "Live",
+    role: "Founder · Frontend",
+    summary:
+      "A free, in-browser place to learn JavaScript by solving tasks. You write code, Tasky runs it against tests in an isolated sandbox and explains what broke — with hints that lead you to the fix instead of handing it over. No install, no sign-up to start; progress follows you once you log in.",
+    challenge:
+      "Feedback that teaches without lying. Every explanation is labelled as a fact, a likely cause or a place to look, so a guess never dresses up as certainty — and learner code runs sandboxed, so an infinite loop can't take the page down with it.",
+    lesson:
+      "The best help is the smallest nudge that still gets someone unstuck. Building hints in levels made me think about UI the same way: show the next step, not the whole answer.",
+    metrics: [
+      { label: "Tasks", value: "10" },
+      { label: "Hint levels", value: "3" },
+      { label: "Install", value: "None" },
+    ],
+    stack: ["Next.js", "React", "Tailwind CSS"],
+    href: "https://tasky.nara.az",
+    image: "/projects/tasky.jpg",
+    imageAlt: "Tasky — learn JavaScript by solving tasks, with tests and hints in the browser",
+    accent: "#6d5df6",
+  },
+  {
     slug: "portfolio",
     name: "This Portfolio",
     tagline: "You are standing in it",
