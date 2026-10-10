@@ -25,8 +25,8 @@ export function About() {
             <Reveal delay={0.1}>
               <p>
                 I study geology. Nobody handed me a computer science degree, a
-                bootcamp or a mentor — I started with an empty folder and a
-                browser tab, and I kept going because the feedback loop was the
+                bootcamp or a mentor - I started with an empty folder and a
+                browser tab and I kept going because the feedback loop was the
                 most addictive thing I had ever found.
               </p>
             </Reveal>
@@ -36,13 +36,13 @@ export function About() {
                 <span className="text-fg">Nara</span>, a white-label platform
                 that meal-subscription businesses use to handle their clients,
                 menus, deliveries and payroll. I designed it, built the
-                frontend, and shipped it to people who complain to me directly
+                frontend and shipped it to people who complain to me directly
                 when something breaks. That is the best teacher I have found.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
               <p>
-                I work with AI every day — Claude Code sits in my terminal the
+                I work with AI every day - Claude Code sits in my terminal the
                 way an IDE sits on my desktop. It has not made me lazy; it has
                 made me faster at the part I actually care about, which is
                 deciding what should exist and how it should feel.

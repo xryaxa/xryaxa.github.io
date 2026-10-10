@@ -17,7 +17,7 @@ export const ACHIEVEMENTS = {
   konami: {
     id: "konami",
     title: "Developer Mode",
-    hint: "↑↑↓↓←→←→BA — the grid is showing.",
+    hint: "↑↑↓↓←→←→BA - the grid is showing.",
   },
   palette: {
     id: "palette",

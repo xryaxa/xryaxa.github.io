@@ -15,7 +15,7 @@ export const SITE = {
   resume: "/Rahman_Zahidov_CV.pdf",
   tagline: "Builder. Dreamer. Frontend Engineer. Future Founder.",
   description:
-    "Self-taught frontend engineer from Baku. I build products people actually use — Nara, a white-label meal-subscription platform running in production.",
+    "Self-taught frontend engineer from Baku. I build products people actually use - Nara, a white-label meal-subscription platform running in production.",
 } as const;
 
 /* ------------------------------------------------------------------ boot -- */
@@ -55,13 +55,13 @@ export const PROJECTS: Project[] = [
     slug: "nara",
     name: "Nara",
     tagline: "The software behind modern meal-prep kitchens",
-    year: "2026 — now",
+    year: "2026 - now",
     status: "In production",
     role: "Founder · Frontend",
     summary:
-      "A white-label platform that lets a meal-subscription business run clients, menus, deliveries, payments and payroll from one dashboard — and hand their customers a branded app in their own language. I designed it, built the frontend and shipped it to real businesses.",
+      "A white-label platform that lets a meal-subscription business run clients, menus, deliveries, payments and payroll from one dashboard - and hand their customers a branded app in their own language. I designed it, built the frontend and shipped it to real businesses.",
     challenge:
-      "One codebase has to look like a different company for every tenant. Logo, colours, domain and language all change per business, so nothing could be hardcoded — every surface reads from tenant config at runtime.",
+      "One codebase has to look like a different company for every tenant. Logo, colours, domain and language all change per business, so nothing could be hardcoded - every surface reads from tenant config at runtime.",
     lesson:
       "Shipping to real businesses rewrote how I build. A bug is no longer a red squiggle, it is somebody's dinner order. I learned to design for the worst day, not the demo.",
     metrics: [
@@ -72,20 +72,20 @@ export const PROJECTS: Project[] = [
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "REST APIs"],
     href: "https://nara.az",
     image: "/projects/nara.jpg",
-    imageAlt: "Nara marketing site — run your meal-subscription business from one dashboard",
+    imageAlt: "Nara marketing site - run your meal-subscription business from one dashboard",
     accent: "#e0234e",
   },
   {
     slug: "nara-dashboard",
     name: "Nara Dashboard",
     tagline: "The platform, wearing someone else's brand",
-    year: "2026 — now",
+    year: "2026 - now",
     status: "In production",
     role: "Frontend",
     summary:
-      "The app every Nara business actually runs on, live at app.nara.az. Its customers get a branded storefront in their own language with passwordless phone login; the owner gets subscriptions and pauses, the daily delivery run, the recipe catalogue with macros, payroll, and analytics on revenue and churn. The screenshot is one real tenant.",
+      "The app every Nara business actually runs on, live at app.nara.az. Its customers get a branded storefront in their own language with passwordless phone login; the owner gets subscriptions and pauses, the daily delivery run, the recipe catalogue with macros, payroll and analytics on revenue and churn. The screenshot is one real tenant.",
     challenge:
-      "One codebase, many identities — and dense operator screens that non-technical kitchen owners read at 6am. Trilingual too: Cyrillic and Latin have different rhythm, so a layout tuned for one breaks in the other.",
+      "One codebase, many identities - and dense operator screens that non-technical kitchen owners read at 6am. Trilingual too: Cyrillic and Latin have different rhythm, so a layout tuned for one breaks in the other.",
     lesson:
       "Theming is an architecture problem, not a CSS problem. Once tokens flow from tenant config instead of a stylesheet, a new brand takes minutes instead of a fork.",
     metrics: [
@@ -96,20 +96,20 @@ export const PROJECTS: Project[] = [
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "i18n"],
     href: "https://app.nara.az",
     image: "/projects/nara-dashboard.jpg",
-    imageAlt: "Nara dashboard — a live tenant's branded storefront in Russian",
+    imageAlt: "Nara dashboard - a live tenant's branded storefront in Russian",
     accent: "#f43f5e",
   },
   {
     slug: "nara-mobile",
     name: "Nara Mobile",
     tagline: "The same product, native in your pocket",
-    year: "2026 — now",
+    year: "2026 - now",
     status: "In production",
     role: "Mobile",
     summary:
       "The native Nara app for iOS and Android, built in Flutter from a single codebase. Customers browse tomorrow's menu, manage their subscription and track delivery without opening a browser.",
     challenge:
-      "Coming from React and the web, Flutter meant relearning how layout works — no CSS, no DOM, a widget tree instead. Keeping the app visually consistent with the web product while respecting what each platform expects took more iterations than the web build did.",
+      "Coming from React and the web, Flutter meant relearning how layout works - no CSS, no DOM, a widget tree instead. Keeping the app visually consistent with the web product while respecting what each platform expects took more iterations than the web build did.",
     lesson:
       "Learning a second way to build UI made me better at the first. Constraints you cannot reach for teach you which ones you were leaning on.",
     metrics: [
@@ -128,7 +128,7 @@ export const PROJECTS: Project[] = [
     status: "In progress",
     role: "Founder · Frontend",
     summary:
-      "A daily meal-plan service for Baku, currently in build. Cooked fresh each morning and delivered — with the ingredients, calories and price shown openly, which is the whole point of it. Bilingual AZ/RU, light and dark themes. Not launched yet; the link is a working preview.",
+      "A daily meal-plan service for Baku, currently in build. Cooked fresh each morning and delivered - with the ingredients, calories and price shown openly, which is the whole point of it. Bilingual AZ/RU, light and dark themes. Not launched yet; the link is a working preview.",
     challenge:
       "Selling transparency means the interface has to earn trust in the first three seconds. Every claim on the page needs the number behind it visible right there, without turning the layout into a spreadsheet.",
     lesson:
@@ -141,20 +141,20 @@ export const PROJECTS: Project[] = [
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     href: "https://bullur.vercel.app",
     image: "/projects/bullur.jpg",
-    imageAlt: "Bullur — daily meal plans in Baku with fully transparent ingredients",
+    imageAlt: "Bullur - daily meal plans in Baku with fully transparent ingredients",
     accent: "#2dd4bf",
   },
   {
     slug: "tasky",
     name: "Tasky",
-    tagline: "Learn JavaScript by getting it wrong — safely",
+    tagline: "Learn JavaScript by getting it wrong - safely",
     year: "2026",
     status: "Live",
     role: "Founder · Frontend",
     summary:
-      "A free, in-browser place to learn JavaScript by solving tasks. You write code, Tasky runs it against tests in an isolated sandbox and explains what broke — with hints that lead you to the fix instead of handing it over. No install, no sign-up to start; progress follows you once you log in.",
+      "A free, in-browser place to learn JavaScript by solving tasks. You write code, Tasky runs it against tests in an isolated sandbox and explains what broke - with hints that lead you to the fix instead of handing it over. No install, no sign-up to start; progress follows you once you log in.",
     challenge:
-      "Feedback that teaches without lying. Every explanation is labelled as a fact, a likely cause or a place to look, so a guess never dresses up as certainty — and learner code runs sandboxed, so an infinite loop can't take the page down with it.",
+      "Feedback that teaches without lying. Every explanation is labelled as a fact, a likely cause or a place to look, so a guess never dresses up as certainty - and learner code runs sandboxed, so an infinite loop can't take the page down with it.",
     lesson:
       "The best help is the smallest nudge that still gets someone unstuck. Building hints in levels made me think about UI the same way: show the next step, not the whole answer.",
     metrics: [
@@ -165,7 +165,7 @@ export const PROJECTS: Project[] = [
     stack: ["Next.js", "React", "Tailwind CSS"],
     href: "https://tasky.nara.az",
     image: "/projects/tasky.jpg",
-    imageAlt: "Tasky — learn JavaScript by solving tasks, with tests and hints in the browser",
+    imageAlt: "Tasky - learn JavaScript by solving tasks, with tests and hints in the browser",
     accent: "#6d5df6",
   },
   {
@@ -223,7 +223,7 @@ export const JOURNEY = [
   {
     year: "2022",
     title: "Started university",
-    body: "Geology, English sector, Baku State University. Not computer science — that part I had to go get myself.",
+    body: "Geology, English sector, Baku State University. Not computer science - that part I had to go get myself.",
   },
   {
     year: "2024",
@@ -233,7 +233,7 @@ export const JOURNEY = [
   {
     year: "Early 2026",
     title: "Nine practice builds",
-    body: "Cafés, tour operators, meal delivery, a doner shop — not client work, just me picking real-world businesses and building the site each one deserved. Every single one finished and deployed, because half-done teaches you nothing.",
+    body: "Cafés, tour operators, meal delivery, a doner shop - not client work, just me picking real-world businesses and building the site each one deserved. Every single one finished and deployed, because half-done teaches you nothing.",
   },
   {
     year: "Mid 2026",
@@ -242,13 +242,13 @@ export const JOURNEY = [
   },
   {
     year: "2026",
-    title: "Nara in production — then Bullur",
-    body: "Real businesses, real customers, real money moving through interfaces I built. Then I started the next one, and built far less before showing it to anyone.",
+    title: "Nara in production - then Bullur",
+    body: "Real businesses, real customers, real money moving through interfaces I built. Then I started the next one and built far less before showing it to anyone.",
   },
   {
     year: "Next",
     title: "Learn from people better than me",
-    body: "I have taken this as far as one person can. The next jump is a professional team, a mentor, and a codebase bigger than mine.",
+    body: "I have taken this as far as one person can. The next jump is a professional team, a mentor and a codebase bigger than mine.",
   },
 ] as const;
 
@@ -265,6 +265,6 @@ export const WHY = [
   },
   {
     title: "I want to build a company",
-    body: "Not someday — I already started. Nara is the first attempt. I want to get very good at this alongside people who already are.",
+    body: "Not someday - I already started. Nara is the first attempt. I want to get very good at this alongside people who already are.",
   },
 ] as const;

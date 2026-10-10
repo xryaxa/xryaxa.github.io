@@ -10,7 +10,7 @@ import { toggleDevMode } from "@/lib/dev-mode";
 type Line = { kind: "in" | "out" | "err"; text: string };
 
 const BANNER: Line[] = [
-  { kind: "out", text: "ryaxa shell — type `help` for commands" },
+  { kind: "out", text: "ryaxa shell - type `help` for commands" },
 ];
 
 /** A small, honest fake shell. Every command returns real site data. */
@@ -79,7 +79,7 @@ export function Terminal({
       case "whoami":
         push({
           kind: "out",
-          text: `${SITE.fullName} (${SITE.name}) — ${SITE.role}, ${SITE.location}.\nSelf-taught. Founder of Nara. Looking for a team to get great with.`,
+          text: `${SITE.fullName} (${SITE.name}) - ${SITE.role}, ${SITE.location}.\nSelf-taught. Founder of Nara. Looking for a team to get great with.`,
         });
         break;
 
@@ -174,7 +174,7 @@ export function Terminal({
         break;
 
       default:
-        push({ kind: "err", text: `command not found: ${name} — try \`help\`` });
+        push({ kind: "err", text: `command not found: ${name} - try \`help\`` });
     }
   };
 
@@ -204,7 +204,7 @@ export function Terminal({
               <span className="size-2.5 rounded-full bg-[#febc2e]" />
               <span className="size-2.5 rounded-full bg-[#28c840]" />
               <span className="ml-2 font-mono text-[11px] tracking-widest text-dim uppercase">
-                ryaxa — zsh
+                ryaxa - zsh
               </span>
               <button
                 onClick={onClose}

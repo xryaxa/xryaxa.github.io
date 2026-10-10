@@ -22,7 +22,7 @@ export default function NotFound() {
         </h1>
 
         <p className="mx-auto mt-4 max-w-md leading-relaxed text-muted">
-          This page does not exist — or it did, and I refactored it away at 2am
+          This page does not exist - or it did and I refactored it away at 2am
           with great confidence.
         </p>
 
@@ -42,7 +42,7 @@ export default function NotFound() {
         </div>
 
         <p className="mt-10 font-mono text-xs text-dim">
-          error: ENOENT — no such file or directory
+          error: ENOENT - no such file or directory
         </p>
       </div>
     </div>

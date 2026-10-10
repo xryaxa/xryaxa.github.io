@@ -20,15 +20,15 @@ const STACK = [
 const NOTES = [
   {
     k: "Rendering",
-    v: "Statically exported. No server, no cold start — every route is a file on a CDN.",
+    v: "Statically exported. No server, no cold start - every route is a file on a CDN.",
   },
   {
     k: "Motion",
-    v: "Every animation is transform or opacity only, and the particle canvas stops the moment it leaves the viewport.",
+    v: "Every animation is transform or opacity only and the particle canvas stops the moment it leaves the viewport.",
   },
   {
     k: "Accessibility",
-    v: "Full keyboard paths, visible focus rings, and prefers-reduced-motion honoured everywhere — including the intro.",
+    v: "Full keyboard paths, visible focus rings and prefers-reduced-motion honoured everywhere - including the intro.",
   },
 ];
 

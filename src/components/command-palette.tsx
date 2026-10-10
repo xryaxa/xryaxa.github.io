@@ -81,7 +81,7 @@ export function CommandPalette({
     },
     { label: "GitHub", icon: GithubIcon, group: "Links", run: open_(SITE.github) },
     {
-      label: "Nara — live product",
+      label: "Nara - live product",
       hint: "nara.az",
       icon: ArrowUpRight,
       group: "Links",
@@ -145,7 +145,7 @@ export function CommandPalette({
               <div className="flex items-center gap-3 border-b border-line px-4">
                 <Command.Input
                   autoFocus
-                  placeholder="Jump to, open, or run something…"
+                  placeholder="Jump to, open or run something…"
                   className="w-full bg-transparent py-4 text-sm text-fg outline-none focus-visible:outline-none placeholder:text-dim"
                 />
                 <kbd className="shrink-0 rounded border border-line px-1.5 py-0.5 font-mono text-[10px] text-dim">

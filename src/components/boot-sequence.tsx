@@ -108,7 +108,7 @@ export function BootSequence() {
               <span className="size-2.5 rounded-full bg-[#febc2e]" />
               <span className="size-2.5 rounded-full bg-[#28c840]" />
               <span className="ml-2 text-[11px] tracking-widest uppercase">
-                ryaxa — boot
+                ryaxa - boot
               </span>
             </div>
 

@@ -20,13 +20,13 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const title = `${SITE.name} — ${SITE.role}`;
+const title = `${SITE.name} - ${SITE.role}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
     default: title,
-    template: `%s — ${SITE.name}`,
+    template: `%s - ${SITE.name}`,
   },
   description: SITE.description,
   keywords: [

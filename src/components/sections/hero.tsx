@@ -121,7 +121,7 @@ export function Hero() {
             style={{ animationDelay: "0.9s" }}
             className="hero-rise mt-8 max-w-xl text-[15px] leading-relaxed text-dim text-balance sm:text-base"
           >
-            I build interfaces people actually use — including{" "}
+            I build interfaces people actually use - including{" "}
             <a
               href="https://nara.az"
               target="_blank"

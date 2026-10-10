@@ -22,7 +22,7 @@ export function Projects() {
           <span className="text-dim">other people rely on.</span>
         </>
       }
-      lead="Not exercises. Not clones. Products with users, deadlines and consequences — which is the only way I have ever learned anything."
+      lead="Not exercises. Not clones. Products with users, deadlines and consequences - which is the only way I have ever learned anything."
     >
       <div className="mt-4 flex flex-col gap-28 md:gap-40">
         {PROJECTS.map((project, i) => (
@@ -130,7 +130,7 @@ function ProjectBlock({ project, index }: { project: Project; index: number }) {
             <Reveal delay={0.2}>
               <p className="mt-7 inline-flex items-center gap-1.5 font-mono text-xs text-dim">
                 <Lock className="size-3.5" aria-hidden />
-                Private repository — walkthrough on request
+                Private repository - walkthrough on request
               </p>
             </Reveal>
           )}

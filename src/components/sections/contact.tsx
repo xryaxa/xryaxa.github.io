@@ -62,7 +62,7 @@ export function Contact() {
             <GithubIcon className="size-3.5" />
             github.com/xryaxa
             <span className="text-dim/70">
-              — repositories are private, walkthrough on request
+              - repositories are private, walkthrough on request
             </span>
           </a>
         </Reveal>
