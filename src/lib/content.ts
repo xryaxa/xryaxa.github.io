@@ -8,7 +8,7 @@ export const SITE = {
   fullName: "Rahman Zahidov",
   role: "Frontend Engineer",
   location: "Baku, Azerbaijan",
-  url: "https://xryaxa.github.io",
+  url: "https://ryaxa.me",
   email: "xryaxa@gmail.com",
   linkedin: "https://linkedin.com/in/rahman-zahidov-a88b3b399",
   github: "https://github.com/xryaxa",

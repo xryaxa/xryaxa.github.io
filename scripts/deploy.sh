@@ -27,4 +27,4 @@ git push -f -q origin gh-pages
 
 cd "$OLDPWD"
 rm -rf "$WORKTREE"
-echo "✓ live at https://xryaxa.github.io (give it ~60s)"
+echo "✓ live at https://ryaxa.me (give it ~60s)"

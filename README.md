@@ -1,6 +1,6 @@
 # xryaxa.github.io
 
-Personal portfolio — [xryaxa.github.io](https://xryaxa.github.io)
+Personal portfolio — [ryaxa.me](https://ryaxa.me)
 
 Built with Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4 and
 Motion. Statically exported and deployed to GitHub Pages on every push to `main`.
